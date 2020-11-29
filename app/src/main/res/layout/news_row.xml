@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="NewsBinding">
+        <variable
+            name="showAsset"
+            type="com.moeiny.reza.ninetest.data.model.uimodel.ShowAssetModel"/>
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_newsrow_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/recycler_item_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_newsrow_header"
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_below="@id/txt_newsrow_date"
+                android:src="@{showAsset.relatedImages}"
+                android:id="@+id/img_NewsRow_Icon"
+                android:scaleType="centerCrop"
+                android:layout_margin="@dimen/hor_margin"
+                android:layout_alignParentLeft="true"
+                android:layout_width="@dimen/recycler_icon_size"
+                android:layout_height="@dimen/recycler_icon_size"/>
+
+            <TextView
+                android:layout_margin="@dimen/hor_margin"
+                android:id="@+id/txt_newsrow_date"
+                android:layout_alignParentRight="true"
+                tools:text="@{showAsset.timeStamp}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_newsrow_title"
+                android:maxLines="3"
+                android:layout_marginLeft="@dimen/hor_margin"
+                tools:text="@{showAsset.headline}"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/img_NewsRow_Icon"
+                android:layout_below="@id/txt_newsrow_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_newsrow_title2"
+                android:maxLines="5"
+                android:layout_marginLeft="@dimen/hor_margin"
+                tools:text="@{showAsset.theAbstract}"
+                android:layout_toRightOf="@id/img_NewsRow_Icon"
+                android:layout_below="@id/txt_newsrow_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_newsrow_byline"
+            android:maxLines="1"
+            android:layout_marginLeft="@dimen/hor_margin"
+            android:layout_marginBottom="@dimen/hor_margin"
+            tools:text="@{showAsset.byLine}"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_newsrow_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:id="@+id/view_newsrow_line"
+            android:background="@color/gray300"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_newsrow_byline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="@dimen/hor_margin"
+            android:id="@+id/rel_newsrow_iconbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_newsrow_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/img_newsrow_seen"
+                app:srcCompat="@drawable/ic_eye_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text=""
+                android:layout_marginRight="@dimen/recycler_item_margin"
+                app:layout_constraintEnd_toStartOf="@id/img_newsrow_seen"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/txt_newsrow_seenCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_marginRight="32dp"
+                android:id="@+id/img_newsrow_cat"
+                app:layout_constraintEnd_toStartOf="@id/txt_newsrow_seenCount"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:srcCompat="@drawable/ic_language_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@{showAsset.assetType}"
+                android:layout_marginRight="@dimen/recycler_item_margin"
+                app:layout_constraintEnd_toStartOf="@id/img_newsrow_cat"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/txt_newsrow_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+</layout>
