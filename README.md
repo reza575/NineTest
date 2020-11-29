@@ -14,7 +14,7 @@ This project is done in Kotlin with respectful to Clean Architecture
 Java,Kotlin
 
 
-![Main Screen](https://github.com/reza575/NineTest/blob/master/screenshots/Ninetest.png)
+![Main Screen](https://github.com/reza575/NineTest/blob/master/screenshots/Ninetest)
 
 
 
