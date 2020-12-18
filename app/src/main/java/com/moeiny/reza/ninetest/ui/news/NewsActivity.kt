@@ -30,7 +30,7 @@ class NewsActivity : AppCompatActivity() {
         /**
          * function setUpParameter: Assign parameters and values
          */
-        setUpParameters()
+        setUpView()
         /**
          * function setupLiveData:fetch Data from repository and post to UI Activity
          */
@@ -46,7 +46,7 @@ class NewsActivity : AppCompatActivity() {
 
 
 
-    private fun setUpParameters() {
+    private fun setUpView() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this, MyViewModelFactory( application as AndroidApplication)).get(
             NewsViewModel::class.java )
